@@ -1,0 +1,4 @@
+myvenv/
+.vscode/
+.pytest_case/
+*/__pycache__
