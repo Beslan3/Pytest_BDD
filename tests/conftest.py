@@ -48,6 +48,12 @@ def browser():
     print('browser opened')
     yield driver
     print('\nbrowser closing..')
-
     driver.quit()
 
+@pytest.fixture(scope='session')
+def quit_browser():
+    chr_options = Options()
+    chr_options.add_experimental_option("detach", True)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chr_options)
+    yield driver
+    driver.quit()
